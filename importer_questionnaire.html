@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Questionnaire Importateur / Importer Questionnaire</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.4;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1, h2 {
+      margin-top: 1.2em;
+      margin-bottom: 0.4em;
+    }
+    fieldset {
+      border: 1px solid #ccc;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+    }
+    legend {
+      font-weight: bold;
+      padding: 0 5px;
+    }
+    .form-group {
+      margin-bottom: 12px;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .hint {
+      font-size: 0.9em;
+      color: #555;
+      margin-bottom: 4px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+      width: 100%;
+      max-width: 100%;
+      padding: 6px 8px;
+      box-sizing: border-box;
+    }
+    textarea {
+      min-height: 80px;
+    }
+    button[type="submit"] {
+      padding: 10px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<form
+  id="importer-questionnaire"
+  action="https://formspree.io/f/mnnkggdv"
+  method="POST"
+  accept-charset="UTF-8"
+  enctype="multipart/form-data"
+>
+  <!-- Formspree helpers -->
+  <input type="hidden" name="_subject" value="Nouvelle réponse - Questionnaire importateur / New Importer Questionnaire Submission">
+  <!-- Redirect to your thank-you page (change URL) -->
+  <input type="hidden" name="_redirect" value="https://yourdomain.com/merci.html">
+  <input type="hidden" name="_formname" value="Questionnaire Importateur">
+
+  <!-- Honeypot anti-spam -->
+  <div style="display:none;">
+    <label>Laissez ce champ vide / Leave this field empty
+      <input type="text" name="_gotcha">
+    </label>
+  </div>
+
+  <h1>Questionnaire Importateur / Importer Questionnaire</h1>
+
+  <!-- Section 1 -->
+  <fieldset>
+    <legend>Section 1 – Informations sur l’entreprise et le contact principal / Company & Contact Details</legend>
+
+    <div class="form-group">
+      <label for="company_name">Nom de l’entreprise / Company name *</label>
+      <input type="text" id="company_name" name="company_name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="company_address">Adresse complète de l’entreprise / Registered company address *</label>
+      <textarea id="company_address" name="company_address" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="country_registration">Pays d’enregistrement de l’entreprise / Country of registration *</label>
+      <input type="text" id="country_registration" name="country_registration" required>
+    </div>
+
+    <div class="form-group">
+      <label for="tax_id">Numéro fiscal / RCCM / numéro d’importateur (le cas échéant) / Tax ID / RCCM / Importer number (if any)</label>
+      <input type="text" id="tax_id" name="tax_id">
+    </div>
+
+    <div class="form-group">
+      <label for="contact_name">Personne de contact principale (nom) / Main contact person (name) *</label>
+      <input type="text" id="contact_name" name="contact_name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="contact_role">Poste ou fonction / Position or role *</label>
+      <input type="text" id="contact_role" name="contact_role" required>
+    </div>
+
+    <div class="form-group">
+      <label for="contact_phone">Téléphone / WhatsApp / Phone / WhatsApp *</label>
+      <input type="tel" id="contact_phone" name="contact_phone" required>
+    </div>
+
+    <div class="form-group">
+      <label for="contact_email">Courriel / Email *</label>
+      <input type="email" id="contact_email" name="contact_email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="company_website">Site web (le cas échéant) / Website (if any)</label>
+      <input type="text" id="company_website" name="company_website">
+    </div>
+  </fieldset>
+
+  <!-- Section 2 -->
+  <fieldset>
+    <legend>Section 2 – Informations d’importation et de conformité / Import & Compliance Information</legend>
+
+    <div class="form-group">
+      <label>Êtes-vous l’« Importer of Record » (importateur officiel) dans votre pays ? / Are you the Importer of Record in your country? *</label>
+      <div>
+        <label><input type="radio" name="importer_of_record" value="yes" required> Oui / Yes</label>
+        <label><input type="radio" name="importer_of_record" value="no"> Non, nous utilisons une autre société / No, we use another company</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="importer_of_record_company">Si non, indiquez le nom de cette société / If no, please specify the company name</label>
+      <input type="text" id="importer_of_record_company" name="importer_of_record_company">
+    </div>
+
+    <div class="form-group">
+      <label for="destination_country">Pays de destination / Destination country *</label>
+      <input type="text" id="destination_country" name="destination_country" value="Côte d’Ivoire" required>
+    </div>
+
+    <div class="form-group">
+      <label>Principaux ports de destination / Main destination port(s) *</label>
+      <div>
+        <label><input type="checkbox" name="destination_ports[]" value="Abidjan"> Abidjan</label>
+        <label><input type="checkbox" name="destination_ports[]" value="San Pedro"> San Pedro</label>
+        <label><input type="checkbox" name="destination_ports[]" value="Other"> Autre / Other</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="destination_port_other">Si autre, veuillez préciser / If other, please specify</label>
+      <input type="text" id="destination_port_other" name="destination_port_other">
+    </div>
+
+    <div class="form-group">
+      <label>Travaillez-vous déjà avec un transitaire ou commissionnaire en douane ? / Do you already work with a customs broker? *</label>
+      <div>
+        <label><input type="radio" name="customs_broker" value="yes" required> Oui / Yes</label>
+        <label><input type="radio" name="customs_broker" value="no"> Non / No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="customs_broker_details">Si oui, nom et coordonnées du transitaire ou commissionnaire en douane / If yes, name & contact of customs broker</label>
+      <textarea id="customs_broker_details" name="customs_broker_details"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Importez-vous déjà des pièces ou des véhicules pour motos ? / Do you already import motorcycle parts or vehicles? *</label>
+      <div>
+        <label><input type="radio" name="import_experience" value="yes" required> Oui / Yes</label>
+        <label><input type="radio" name="import_experience" value="no"> Non, ce sera notre première importation / No, this is our first time</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="import_experience_details">Si oui, depuis quels pays et depuis quand ? / If yes, from which countries and since when?</label>
+      <textarea id="import_experience_details" name="import_experience_details"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Avez-vous déjà de l’expérience avec les Certificats de Conformité (CoC) / Vérification de Conformité (VoC – SGS, Intertek, Cotecna, etc.) ? / Do you already have experience with Certificates of Conformity (CoC) / Verification of Conformity (VoC)? *</label>
+      <div>
+        <label><input type="radio" name="coc_voc_experience" value="yes" required> Oui / Yes</label>
+        <label><input type="radio" name="coc_voc_experience" value="no"> Non / No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="coc_voc_agency">Si oui, avec quel organisme travaillez-vous ? / If yes, which agency do you use?</label>
+      <input type="text" id="coc_voc_agency" name="coc_voc_agency">
+    </div>
+  </fieldset>
+
+  <!-- Section 3 -->
+  <fieldset>
+    <legend>Section 3 – Produits et marques / Products & Brands</legend>
+
+    <div class="form-group">
+      <label>Pour quelles marques souhaitez-vous des pièces ? / Which brands do you want parts for? *</label>
+      <div>
+        <label><input type="checkbox" name="brands[]" value="TVS"> TVS</label>
+        <label><input type="checkbox" name="brands[]" value="Haojue"> Haojue</label>
+        <label><input type="checkbox" name="brands[]" value="KTM"> KTM</label>
+        <label><input type="checkbox" name="brands[]" value="Other"> Autre / Other</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="brands_other">Si autre, veuillez lister les autres marques / If other, please list other brands</label>
+      <textarea id="brands_other" name="brands_other"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Souhaitez-vous des pièces d’origine, des pièces adaptables de bonne qualité, ou les deux ? / Do you require genuine/original parts, good-quality aftermarket, or both? *</label>
+      <div>
+        <label><input type="radio" name="parts_type" value="genuine_only" required> Uniquement pièces d’origine / Genuine/original only</label>
+        <label><input type="radio" name="parts_type" value="aftermarket_only"> Uniquement pièces adaptables de bonne qualité / Good-quality aftermarket only</label>
+        <label><input type="radio" name="parts_type" value="both"> Les deux (veuillez préciser) / Both (please explain)</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="parts_priority_details">Si les deux, veuillez préciser vos priorités (qualité, prix, etc.) / If both, please explain your priority (quality, price, etc.)</label>
+      <textarea id="parts_priority_details" name="parts_priority_details"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="brand_models">Pour chaque marque, quels sont les modèles que vous entretenez principalement ? / For each brand, which models do you mainly service?</label>
+      <p class="hint">Merci de lister les modèles pour TVS / Haojue / KTM / autres. / Please list models for TVS / Haojue / KTM / others.</p>
+      <textarea id="brand_models" name="brand_models"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="top_parts">Vos 20 à 50 pièces principales / Top 20–50 parts you need</label>
+      <p class="hint">Pour chaque pièce : nom, référence OEM (si connue), modèle et année, quantité par mois. / For each part: name, OEM/part number (if known), model & year, quantity per month.</p>
+      <textarea id="top_parts" name="top_parts"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Avez-vous des photos ou des échantillons des pièces que vous utilisez actuellement ? / Do you have photos or samples of existing parts you are using? *</label>
+      <div>
+        <label><input type="radio" name="existing_parts_photos" value="yes" required> Oui, je peux envoyer des photos / Yes, I can send photos</label>
+        <label><input type="radio" name="existing_parts_photos" value="no"> Non / No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="existing_parts_files">Téléchargez vos photos ou documents (si disponibles) / Upload photos or documents (if available)</label>
+      <input type="file" id="existing_parts_files" name="existing_parts_files[]" multiple>
+    </div>
+
+    <div class="form-group">
+      <label>Connaissez-vous les codes SH (HS) utilisés par votre transitaire pour ces produits ? / Do you know the HS codes used by your customs broker for these items? *</label>
+      <div>
+        <label><input type="radio" name="hs_codes_known" value="yes" required> Oui / Yes</label>
+        <label><input type="radio" name="hs_codes_known" value="no"> Non / No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="hs_codes_list">Si oui, veuillez lister les codes SH (si disponibles) / If yes, please list the HS codes (if available)</label>
+      <textarea id="hs_codes_list" name="hs_codes_list"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Niveau de qualité souhaité (cochez toutes les réponses pertinentes) / Quality level expectations (tick all that apply)</label>
+      <div>
+        <label><input type="checkbox" name="quality_expectations[]" value="same_as_original"> Qualité équivalente à l’origine / Same quality as original</label>
+        <label><input type="checkbox" name="quality_expectations[]" value="mid_quality"> Qualité intermédiaire : bonne mais moins chère que l’origine / Middle quality, good but cheaper than original</label>
+        <label><input type="checkbox" name="quality_expectations[]" value="lowest_price"> Le prix le plus bas est plus important que la durabilité / Lowest price more important than durability</label>
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- Section 4 -->
+  <fieldset>
+    <legend>Section 4 – Volume de commande et prévisions / Order Volume & Forecast</legend>
+
+    <div class="form-group">
+      <label for="first_order_volume">Volume prévu pour la première commande / Expected first order volume</label>
+      <p class="hint">Valeur totale approximative (USD), volume (CBM) ou nombre de cartons. / Approx. total value (USD), CBM or number of cartons.</p>
+      <textarea id="first_order_volume" name="first_order_volume"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="regular_volume">Volume régulier prévu après la première commande / Expected regular volume after first order</label>
+      <p class="hint">Exemple : « 1 conteneur 20 pieds tous les 3 mois », etc. / Example: “One 20’ container every 3 months”, etc.</p>
+      <textarea id="regular_volume" name="regular_volume"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>À quelle fréquence pensez-vous recommander si la qualité vous convient ? / How often do you plan to reorder if the quality is good?</label>
+      <div>
+        <label><input type="radio" name="reorder_frequency" value="monthly"> Tous les mois / Monthly</label>
+        <label><input type="radio" name="reorder_frequency" value="2_3_months"> Tous les 2–3 mois / Every 2–3 months</label>
+        <label><input type="radio" name="reorder_frequency" value="occasional"> Occasionnellement / fréquence non fixe / Occasionally / not fixed</label>
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- Section 5 -->
+  <fieldset>
+    <legend>Section 5 – Logistique et préférences d’expédition / Logistics & Shipping Preferences</legend>
+
+    <div class="form-group">
+      <label>Incoterms préférés / Preferred Incoterms</label>
+      <div>
+        <label><input type="radio" name="incoterms" value="FOB"> FOB (port en Chine) / FOB (port in China)</label>
+        <label><input type="radio" name="incoterms" value="CIF"> CIF (jusqu’à votre port) / CIF (to your port)</label>
+        <label><input type="radio" name="incoterms" value="other"> Autre / Je ne sais pas (nous pouvons conseiller) / Other / Not sure (we can advise)</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="incoterms_other">Si autre, veuillez préciser / If other, please specify</label>
+      <input type="text" id="incoterms_other" name="incoterms_other">
+    </div>
+
+    <div class="form-group">
+      <label>Mode de transport préféré / Preferred shipping method</label>
+      <div>
+        <label><input type="radio" name="shipping_method" value="sea_fcl"> Transport maritime FCL (conteneur complet) / Sea freight FCL (full container)</label>
+        <label><input type="radio" name="shipping_method" value="sea_lcl"> Transport maritime LCL (groupage) / Sea freight LCL (less than container)</label>
+        <label><input type="radio" name="shipping_method" value="air"> Transport aérien (pour petites commandes urgentes) / Air freight (for urgent small orders)</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Souhaitez-vous que nous consolidions des marchandises de plusieurs fournisseurs dans un seul envoi ? / Do you need us to consolidate goods from multiple suppliers into one shipment?</label>
+      <div>
+        <label><input type="radio" name="consolidation" value="yes"> Oui / Yes</label>
+        <label><input type="radio" name="consolidation" value="no"> Non / No</label>
+        <label><input type="radio" name="consolidation" value="maybe"> Peut-être plus tard / Maybe in the future</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="packaging_requirements">Avez-vous des exigences particulières pour l’emballage ou l’étiquetage ? / Do you have any special requirements for packaging or labelling?</label>
+      <p class="hint">ex. votre marque, cartons neutres, mention « Made in China », étiquettes en français, codes-barres, etc. / e.g. your brand name, neutral cartons, “Made in China” marking, French labels, barcodes, etc.</p>
+      <textarea id="packaging_requirements" name="packaging_requirements"></textarea>
+    </div>
+  </fieldset>
+
+  <!-- Section 6 -->
+  <fieldset>
+    <legend>Section 6 – Conditions de paiement et commerciales / Payment & Commercial Terms</legend>
+
+    <div class="form-group">
+      <label>Devise de préférence / Preferred currency</label>
+      <div>
+        <label><input type="radio" name="currency" value="USD"> USD</label>
+        <label><input type="radio" name="currency" value="EUR"> EUR</label>
+        <label><input type="radio" name="currency" value="other"> Autre / Other</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="currency_other">Si autre, veuillez préciser la devise / If other, please specify the currency</label>
+      <input type="text" id="currency_other" name="currency_other">
+    </div>
+
+    <div class="form-group">
+      <label>Mode de paiement préféré / Preferred payment method</label>
+      <div>
+        <label><input type="radio" name="payment_method" value="bank_transfer"> Virement bancaire (T/T) / Bank transfer (T/T)</label>
+        <label><input type="radio" name="payment_method" value="lc"> Crédit documentaire (L/C) / Letter of Credit (L/C)</label>
+        <label><input type="radio" name="payment_method" value="other"> Autre / Other</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="payment_method_other">Si autre, veuillez préciser / If other, please specify</label>
+      <input type="text" id="payment_method_other" name="payment_method_other">
+    </div>
+
+    <div class="form-group">
+      <label>Quelles conditions de paiement utilisez-vous habituellement pour vos importations depuis l’Asie ? / What payment terms do you normally work with for imports from Asia?</label>
+      <div>
+        <label><input type="radio" name="payment_terms" value="30_70"> 30 % d’acompte / 70 % avant expédition / 30% deposit / 70% before shipment</label>
+        <label><input type="radio" name="payment_terms" value="100_before"> 100 % avant expédition / 100% before shipment</label>
+        <label><input type="radio" name="payment_terms" value="other"> Autre / Other</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="payment_terms_other">Si autre, veuillez préciser / If other, please specify</label>
+      <input type="text" id="payment_terms_other" name="payment_terms_other">
+    </div>
+
+    <div class="form-group">
+      <label>Qui paiera les inspections (contrôle qualité) et les frais de CoC/VoC ? / Who will pay for inspections (quality control) and CoC/VoC fees?</label>
+      <div>
+        <label><input type="radio" name="inspection_fees" value="importer"> L’importateur (vous) / Importer (you)</label>
+        <label><input type="radio" name="inspection_fees" value="shared"> Partagé / à discuter / Shared / to be discussed</label>
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- Section 7 -->
+  <fieldset>
+    <legend>Section 7 – Aspects juridiques, marque et gestion des risques / Legal, Brand & Risk Issues</legend>
+
+    <div class="form-group">
+      <label>Avez-vous des accords officiels de distribution pour ces marques dans votre pays ? / Are you working with any official distributor agreements for these brands in your country?</label>
+      <div>
+        <label><input type="radio" name="distributor_agreements" value="yes"> Oui / Yes</label>
+        <label><input type="radio" name="distributor_agreements" value="no"> Non / No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="distributor_agreements_details">Si oui, veuillez décrire / If yes, please describe</label>
+      <textarea id="distributor_agreements_details" name="distributor_agreements_details"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Souhaitez-vous une exclusivité pour certains produits ou certaines marques sur votre marché ? / Do you need any exclusivity for certain products or brands in your market?</label>
+      <div>
+        <label><input type="radio" name="exclusivity" value="yes"> Oui / Yes</label>
+        <label><input type="radio" name="exclusivity" value="no"> Non / No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="exclusivity_details">Si oui, pour quels produits/marques et sur quel territoire ? / If yes, which products/brands and which territory?</label>
+      <textarea id="exclusivity_details" name="exclusivity_details"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="restricted_products">Y a-t-il des produits réglementés ou sensibles dans votre pays que nous devons éviter ? / Are there any products that are restricted or sensitive in your country that we should avoid?</label>
+      <p class="hint">ex. pièces d’occasion, moteurs, pneus, batteries, produits chimiques, etc. / e.g. used parts, engines, tyres, batteries, chemicals, etc.</p>
+      <textarea id="restricted_products" name="restricted_products"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="main_priority">Quelle est votre priorité principale ? (veuillez décrire ou classer) / What is your main priority? (please describe or rank)</label>
+      <p class="hint">Qualité, prix, rapidité de livraison, image de marque/emballage. / Quality, price, fast delivery, brand image/packaging.</p>
+      <textarea id="main_priority" name="main_priority"></textarea>
+    </div>
+  </fieldset>
+
+  <!-- Section 8 -->
+  <fieldset>
+    <legend>Section 8 – Informations complémentaires / Additional Information</legend>
+
+    <div class="form-group">
+      <label for="referral_source">Comment avez-vous connu notre service de sourcing ? / How did you hear about our sourcing service?</label>
+      <input type="text" id="referral_source" name="referral_source">
+    </div>
+
+    <div class="form-group">
+      <label for="additional_info">Y a-t-il autre chose que nous devrions savoir sur votre entreprise, votre marché ou ce projet ? / Anything else we should know about your business, your market, or this project?</label>
+      <textarea id="additional_info" name="additional_info"></textarea>
+    </div>
+  </fieldset>
+
+  <div class="form-group">
+    <button type="submit">Envoyer / Submit</button>
+  </div>
+</form>
+
+</body>
+</html>
